@@ -5,15 +5,13 @@ export default class Card extends React.Component {
       super(props);
       this.state = {
         highlight: false,
-        counter: 100
       };
-      this.onMouseEnter = this.onMouseEnter.bind(this);
+      this.foo = this.foo.bind(this);
     }
 
-    onMouseEnter() {
+    foo() {
       this.setState({
-        highlight: !this.state.highlight,
-        counter: this.state.counter -1
+        highlight: !this.state.highlight
       });
     }
 
@@ -21,9 +19,8 @@ export default class Card extends React.Component {
     render() {
       const classes = `card ${this.state.highlight ? 'highlight' : ''}`;
       return (
-        <div className= {classes} onClick = {this.onMouseEnter}>
+        <div className= {classes} onMouserEnter = {this.onMouseEnter}>
           <p>{this.props.cardText}</p>
-          <p>{this.state.counter}</p>
         </div>
     );
   }
