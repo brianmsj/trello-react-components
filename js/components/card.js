@@ -6,12 +6,19 @@ export default class Card extends React.Component {
       this.state = {
         highlight: false,
       };
-      this.foo = this.foo.bind(this);
+      this.highlightOn = this.highlightOn.bind(this);
+      this.highlightOff = this.highlightOff.bind(this);
     }
 
-    foo() {
+    highlightOn() {
       this.setState({
-        highlight: !this.state.highlight
+        highlight: true
+      });
+    }
+
+    highlightOff(){
+      this.setState({
+        highlight: false
       });
     }
 
@@ -19,9 +26,10 @@ export default class Card extends React.Component {
     render() {
       const classes = `card ${this.state.highlight ? 'highlight' : ''}`;
       return (
-        <div className= {classes} onMouseEnter = {this.onMouseEnter}>
+        <div className= {classes} onMouseEnter = {this.highlightOn} onMouseLeave={this.highlightOff} >
           <p>{this.props.cardText}</p>
+          <button onClick = {() => this.props.deleteCard(this.props.id)}>X</button>
         </div>
-    );
-  }
+      );
+    }
 }

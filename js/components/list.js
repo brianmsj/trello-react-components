@@ -2,19 +2,22 @@
 import React from 'react';
 import Card from './card';
 
+function renderCards(cards, deleteCard){
+  return cards.map((card) => {
+    return <Card key={card.id} id={card.id} deleteCard={deleteCard} cardText={card.text} />;
+  });
+}
 
 export default function List(props) {
-    console.log(props);
+  const { deleteCard } = props;
     return (
         <div>
           <h3> {props.title} </h3>
-            <Card className="card-list" card = {props.cards.map(item => item)}/>
+            {renderCards(props.cards, deleteCard)}
           <form>
-            <input type = "text" onChange = {e  => props.onAddInputChanged(e)} />
-            <button type = "submit" onClick = {e => props.onAddSubmit(e.preventDefault())}>Submit</button>
+            <input type = "text" onChange = {e  => props.onAddInputChanged(e.target.value)} />
+            <button type = "submit" onClick = {e => props.onAddSubmit(e)}>Submit</button>
            </form>
         </div>
     );
 }
-
-
