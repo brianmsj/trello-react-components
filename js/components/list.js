@@ -3,15 +3,12 @@ import React from 'react';
 import Card from './card';
 
 
-// onAddInputChanged(event) {
-//   console.log(event.target.value);
-// }
-
 export default function List(props) {
+    console.log(props);
     return (
         <div>
           <h3> {props.title} </h3>
-            <Card className="card-list" cardText = {props.cardText}/>
+            <Card className="card-list" card = {props.cards.map(item => item)}/>
           <form>
             <input type = "text" onChange = {e  => props.onAddInputChanged(e)} />
             <button type = "submit" onClick = {e => props.onAddSubmit(e.preventDefault())}>Submit</button>
@@ -21,6 +18,3 @@ export default function List(props) {
 }
 
 
-function sayHello() {
-  console.log('Hello Person');
-}

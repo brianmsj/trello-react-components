@@ -19,7 +19,7 @@ export default class Card extends React.Component {
     render() {
       const classes = `card ${this.state.highlight ? 'highlight' : ''}`;
       return (
-        <div className= {classes} onMouserEnter = {this.onMouseEnter}>
+        <div className= {classes} onMouseEnter = {this.onMouseEnter}>
           <p>{this.props.cardText}</p>
         </div>
     );
