@@ -9,7 +9,7 @@ export default function Board(props) {
       <h1>{props.title}</h1>
       <div className = 'board-list'>
       <ListContainer />
-<ListContainer /><ListContainer /><ListContainer />      </div>
+    </div>
     </div>
   );
 }
