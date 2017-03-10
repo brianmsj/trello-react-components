@@ -33,6 +33,7 @@ export default class ListContainer extends React.Component  {
 
 
 	render() {
+		console.log(this.state.cards);
 		return (
 			<List title = 'Test' onAddInputChanged = {this.onAddInputChanged}
 			onAddSubmit = {this.onAddSubmit} deleteCard = {this.deleteCard} cards = {this.state.cards} />
